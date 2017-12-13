@@ -16,9 +16,10 @@
         display: none;
     }
 
-    .list-card-details{
+    .list-card-details {
         margin-top: 20px;
     }
+
     .type-tag span {
         display: inline-block;
         color: #fff;
@@ -46,6 +47,35 @@
     .type-tag span.color5 {
         background: #0079BF;
     }
+
+    .comment-frame-title {
+        border-bottom: 1px solid #e8e8e8;
+        font-size: 16px;
+        color: #333333;
+        vertical-align: middle;
+        padding: 10px 0 10px 10px;
+        zoom: 1;
+    }
+
+    .new-comment.is-focused .comment-frame {
+        box-shadow: 0 0px 0px rgba(0, 0, 0, 0);
+    }
+
+    .comment-box-input, .comment-box-input:active, .comment-box-input:focus, .comment-box-input:hover {
+        border-bottom: solid 0px transparent;
+    }
+
+    .comment-box-input {
+        min-height: 45px;
+    }
+
+    .list-card-details {
+        background: #ffffff;
+        margin-top: 10px;
+    }
+    .js-list-card-members span{
+        color: #999999;
+    }
 </style>
 <div class="new-comment js-new-comment is-focused">
     <!--<div class="member member-no-menu">-->
@@ -54,6 +84,7 @@
     <!--</div>-->
     <form>
         <div class="comment-frame">
+            <div class="comment-frame-title">文字内容</div>
             <div class="comment-box">
                 <textarea class="comment-box-input js-new-comment-input"
                           placeholder="好好学习，天天向上" tabindex="1" dir="auto"
@@ -71,38 +102,112 @@
                         class="icon-sm icon-card"></span></a></div>
             </div>
         </div>
+        <div class="comment-frame">
+            <div class="comment-frame-title">作者</div>
+            <div class="comment-box">
+                <textarea class="comment-box-input js-new-comment-input"
+                          placeholder="佚名" tabindex="1" dir="auto"
+                          style="overflow: hidden; word-wrap: break-word; height: 45px;"></textarea>
+                <div class="comment-box-options">
+                    <a class="comment-box-options-item js-comment-add-attachment" href="#" title="Add an attachment…">
+                        <span class="icon-sm icon-attachment"></span>
+                    </a>
+                    <a
+                            class="comment-box-options-item js-comment-mention-member" href="#"
+                            title="Mention a member…"><span class="icon-sm icon-mention"></span></a><a
+                        class="comment-box-options-item js-comment-add-emoji" href="#" title="Add emoji…"><span
+                        class="icon-sm icon-emoji"></span></a><a class="comment-box-options-item js-comment-add-card"
+                                                                 href="#" title="Add card…"><span
+                        class="icon-sm icon-card"></span></a></div>
+            </div>
+        </div>
+        <div class="comment-frame">
+            <div class="comment-frame-title">出处</div>
+            <div class="comment-box">
+                <textarea class="comment-box-input js-new-comment-input"
+                          placeholder="某心灵鸡汤杂志" tabindex="1" dir="auto"
+                          style="overflow: hidden; word-wrap: break-word; height: 45px;"></textarea>
+                <div class="comment-box-options">
+                    <a class="comment-box-options-item js-comment-add-attachment" href="#" title="Add an attachment…">
+                        <span class="icon-sm icon-attachment"></span>
+                    </a>
+                    <a
+                            class="comment-box-options-item js-comment-mention-member" href="#"
+                            title="Mention a member…"><span class="icon-sm icon-mention"></span></a><a
+                        class="comment-box-options-item js-comment-add-emoji" href="#" title="Add emoji…"><span
+                        class="icon-sm icon-emoji"></span></a><a class="comment-box-options-item js-comment-add-card"
+                                                                 href="#" title="Add card…"><span
+                        class="icon-sm icon-card"></span></a></div>
+            </div>
+        </div>
         <div class="type-tag">
-            <span class="color1">tag1</span><span class="color2">tag2</span><span class="color3">tag3</span><span
-                class="color4">tag4</span>
+            <span class="color1">励志</span>
+            <span class="color2">激励</span>
+            <span class="color3">情感</span>
+            <span class="color4">随机</span>
+            <div class="comment-frame">
+                <div class="comment-box">
+                <textarea class="comment-box-input js-new-comment-input"
+                          placeholder="自定义类别" tabindex="1" dir="auto"
+                          style="overflow: hidden; word-wrap: break-word; height: 15px;min-height: 35px;"></textarea>
+                    <div class="comment-box-options">
+                        <a class="comment-box-options-item js-comment-add-attachment" href="#"
+                           title="Add an attachment…">
+                            <span class="icon-sm icon-attachment"></span>
+                        </a>
+                        <a
+                                class="comment-box-options-item js-comment-mention-member" href="#"
+                                title="Mention a member…"><span class="icon-sm icon-mention"></span></a><a
+                            class="comment-box-options-item js-comment-add-emoji" href="#" title="Add emoji…"><span
+                            class="icon-sm icon-emoji"></span></a><a
+                            class="comment-box-options-item js-comment-add-card"
+                            href="#" title="Add card…"><span
+                            class="icon-sm icon-card"></span></a></div>
+                </div>
+            </div>
         </div>
         <div class="comment-controls u-clearfix"><input class="primary confirm mod-no-top-bottom-margin js-add-comment"
                                                         tabindex="3" type="submit" value="添加" disabled=""></div>
     </form>
-    <div class="comment-too-long-warning"><p>Your comment is too long! You can add it as a text attachment or truncate
-        it.</p><input class="primary js-attach-comment" type="submit" value="Add as an Attachment" tabindex="4"><input
-            class="js-truncate-comment" type="submit" value="Truncate" tabindex="5"></div>
+    <div class="comment-too-long-warning">
+        <p>Your comment is too long! You can add it as a text attachment or truncate
+            it.</p><input class="primary js-attach-comment" type="submit" value="Add as an Attachment"
+                          tabindex="4">
+        <input class="js-truncate-comment" type="submit" value="Truncate" tabindex="5">
+    </div>
 
-    <a class="list-card js-member-droppable ui-droppable"
-       href="/c/49WCrvPs/4-%E5%90%84%E8%B4%A6%E6%88%B7%E6%B1%87%E6%80%BB">
-        <div class="list-card-cover js-card-cover"></div>
-        <span class="icon-sm icon-edit list-card-operation dark-hover js-open-quick-card-editor js-card-menu"></span>
-        <div class="list-card-stickers-area hide">
-            <div class="stickers js-card-stickers"></div>
+
+    <div class="list-card-cover js-card-cover"></div>
+    <span class="icon-sm icon-edit list-card-operation dark-hover js-open-quick-card-editor js-card-menu"></span>
+    <div class="list-card-stickers-area hide">
+        <div class="stickers js-card-stickers"></div>
+    </div>
+    <div class="list-card-details">
+        <div class="list-card-labels js-card-labels"></div>
+        <span class="list-card-title js-card-name" dir="auto">
+                <span class="card-short-id hide">#4</span>d好好学习，天天向上</span>
+        <div class="list-card-members js-list-card-members">
+            <span>佚名</span>&nbsp;&nbsp;<span>某心灵鸡汤杂志</span>
         </div>
-        <div class="list-card-details">
-            <div class="list-card-labels js-card-labels"></div>
-            <span class="list-card-title js-card-name" dir="auto"><span
-                    class="card-short-id hide">#4</span>好好学习，天天向上</span>
-            <!--<div class="badges">-->
-                <!--<span class="js-badges">-->
-                <!--<div class="badge is-icon-only" title="This card has a description.">-->
-                    <!--<span class="badge-icon icon-sm icon-description"></span>-->
-                <!--</div></span><span-->
-                    <!--class="js-plugin-badges"><span></span></span></div>-->
-            <div class="list-card-members js-list-card-members"></div>
+    </div>
+    <div class="list-card-details">
+        <div class="list-card-labels js-card-labels"></div>
+        <span class="list-card-title js-card-name" dir="auto">
+                <span class="card-short-id hide">#4</span>这是一个神奇的国度</span>
+        <div class="list-card-members js-list-card-members">
+            <span>佚名</span>&nbsp;&nbsp;<span>某心灵鸡汤杂志</span>
         </div>
-        <p class="list-card-dropzone">Drop files to upload.</p>
-        <p class="list-card-dropzone-limited">Too many attachments.</p></a>
+    </div>
+    <div class="list-card-details">
+        <div class="list-card-labels js-card-labels"></div>
+        <span class="list-card-title js-card-name" dir="auto">
+                <span class="card-short-id hide">#4</span>普渡众生</span>
+        <div class="list-card-members js-list-card-members">
+            <span>佚名</span>&nbsp;&nbsp;<span>某心灵鸡汤杂志</span>
+        </div>
+    </div>
+    <p class="list-card-dropzone">Drop files to upload.</p>
+    <p class="list-card-dropzone-limited">Too many attachments.</p>
 </div>
 </body>
 </html>
